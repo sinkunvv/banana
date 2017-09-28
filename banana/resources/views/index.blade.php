@@ -2,16 +2,28 @@
 
 @section('content')
     <section>
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <header>
             <h3>メーカー</h3>
         </header>
-        <img src={{asset('/img/base.png')}} width="30%" height="30%" alt="" />
-        <img src={{asset('/img/test.png')}} width="30%" height="30%" alt="" />
-        {!! Form::open(['url' => 'create', 'files' => 'true']) !!}
+        <div class="row">
+            <img src={{asset('/img/base.png')}} width="30%" height="30%" alt="" />
+            <img src={{asset('/img/test.png')}} width="30%" height="30%" alt="" />
+        </div>
+
+        {!! Form::open(['accept-charset' => 'UTF-8', 'url' => 'create', 'files' => 'true']) !!}
             <div class="row 50%">
                 <div class="12u">
-                    {!! Form::file('image_file') !!}
+                    {!! Form::label('お題：(250x250pxまで)') !!}
+                    {!! Form::file('obj_img') !!}
                 </div>
             </div>
             <div class="row 50%">
