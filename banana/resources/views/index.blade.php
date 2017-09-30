@@ -17,23 +17,23 @@
         <div class="row">
             <img src={{asset('/img/base.png')}} width="30%" height="30%" alt="" />
             <img src={{asset('/img/test.png')}} width="30%" height="30%" alt="" />
+            <img src={{asset('/img/test2.png')}} width="30%" height="30%" alt="" />
         </div>
 
         {!! Form::open(['accept-charset' => 'UTF-8', 'url' => 'create', 'files' => 'true']) !!}
             <div class="row 50%">
                 <div class="12u">
                     {!! Form::label('お題：(250x250pxまで)') !!}
+                    {!! Form::input('text', 'this_theme', null, ['class' => 'form-control', 'placeholder' => 'お題を入力', 'value' => "{{Input::old('stupid_think')}}"]) !!}
                     {!! Form::file('obj_img') !!}
                 </div>
             </div>
             <div class="row 50%">
                 <div class="12u">
                     {!! Form::label('頭のいい人の場合')!!}
-                    {!! Form::input('text', 'smart_think_1', null, ['class' => 'form-control', 'placeholder' => '頭のいい考えをかこう...']) !!}
-                    {!! Form::input('text', 'smart_think_2', null, ['class' => 'form-control']) !!}
-                    {!! Form::input('text', 'smart_think_3', null, ['class' => 'form-control']) !!}
-                    {!! Form::input('text', 'smart_think_4', null, ['class' => 'form-control']) !!}
-                    {!! Form::input('text', 'smart_think_5', null, ['class' => 'form-control']) !!}
+                    @for ($i=1;$i<=14;$i++)
+                        {!! Form::input('text', 'smart_think[]', null, ['class' => 'form-control', 'placeholder' => '頭のいい考えをかこう...']) !!}
+                    @endfor
                 </div>
             </div>
             <div class="row 50%">

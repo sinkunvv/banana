@@ -117,6 +117,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+         'this_theme' => 'お題目',
+         'smart_think.*' => '頭の良い人の考え',
+         'stupid_think' => '頭の悪い人の考え',
+         'obj_img' => 'お題の画像',
+    ],
 
 ];
