@@ -22,12 +22,14 @@ class BananaController extends Controller
         //$obj_img = \Image::make($request->file('obj_img'));
         $obj_img = \Image::make('img/obj.png');
         // theme on base
-        $this->this_theme($theme, $obj_img);
+        $theme_img = $this->this_theme($theme, $obj_img);
         // smart think
-        $this->smart_think($smart, $obj_img);
+        $smart_img = $this->smart_think($smart, $obj_img);
         // stupid think
-        $this->stupid_think($stupid, $obj_img);
-
+        $stupid_img = $this->stupid_think($stupid, $obj_img);
+        $theme_img->save('img/test1.png');
+        $smart_img->save('img/test2.png');
+        $stupid_img->save('img/test3.png');
         return redirect('/');
         //return view('index');
     }
@@ -42,7 +44,7 @@ class BananaController extends Controller
         });
         $obj->fit(80,80); // max 80x80 resize
         $img->insert($obj, 'top-left', 140, 90); // theme obj
-        $img->save('img/test1.png');
+        return $img;
     }
 
     private function smart_think($smart, $obj) {
@@ -123,7 +125,7 @@ class BananaController extends Controller
         $obj->fit(50,50);
         $back->insert($obj, 'top-left', 50, 175); // smart pepole obj
         $back->insert($img, 'top-left', 130, 0); // smart pepole obj
-        $back->save('img/test2.png');
+        return $back;
     }
 
     private function stupid_think($stupid, $obj) {
@@ -164,7 +166,7 @@ class BananaController extends Controller
                 $ht = 70;
                 break;
             case 3:
-                $ht = 50;
+                $ht = 40;
                 break;
             default:
                 $ht = 0;
@@ -174,7 +176,7 @@ class BananaController extends Controller
         $obj->fit(50,50);
         $back->insert($obj, 'bottom-left', 50, 5); // stupid pepole obj
         $back->insert($img, 'bottom-right', 10, $ht); // stupid think img
-        $back->save('img/test3.png');
+        return $back;
     }
 
 }
