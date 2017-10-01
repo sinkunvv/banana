@@ -35,7 +35,7 @@ class BananaController extends Controller
     private function this_theme($theme, $obj) {
         $img = \Image::make('img/theme.png');
         $img->text($theme, 190, 220, function($font) {
-            $font->file(public_path('fonts\ipagp.ttf'));
+            $font->file(public_path('fonts/ipagp.ttf'));
             $font->size(16);
             $font->align('center');
             $font->color('#000000');
