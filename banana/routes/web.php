@@ -13,5 +13,5 @@
 
 Route::get('/', function () {
     return view('index');
-});
-Route::post('/create','BananaController@create')->middleware('auth.very_basic');
+})->middleware('auth.very_basic');
+Route::post('/create','BananaController@create');
