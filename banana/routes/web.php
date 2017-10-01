@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->middleware('auth.very_basic');
-Route::post('/create','BananaController@create');
+
+Route::get('/','BananaController@index')->middleware('auth.very_basic');;
+Route::post('/','BananaController@create');

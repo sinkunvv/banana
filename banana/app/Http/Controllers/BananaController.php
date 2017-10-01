@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class BananaController extends Controller
 {
+    public function index()
+    {
+        return view('index');
+    }
     // create img
     public function create(Request $request) {
         // validate image only
@@ -32,8 +36,8 @@ class BananaController extends Controller
         $theme_img->save('img/test1.png');
         $smart_img->save('img/test2.png');
         $stupid_img->save('img/test3.png');
+
         return redirect('/');
-        //return view('index');
     }
 
     private function this_theme($theme, $obj) {
