@@ -18,147 +18,121 @@ class BananaController extends Controller
         $theme = $request->input('this_theme');
         $stupid = $request->input('stupid_think');
         $smart = $request->input('smart_think');
-        // base & theme image create
-        $obj_img = \Image::make($request->file('obj_img'));
-        $base_img = \Image::make('img/base.png');
-
+        // upload object image
+        //$obj_img = \Image::make($request->file('obj_img'));
+        $obj_img = \Image::make('img/obj.png');
         // theme on base
-        $base_img = $this->this_theme($theme, $base_img);
+        $this->this_theme($theme, $obj_img);
         // smart think
-        $smart_img = $this->smart_think($smart);
+        $this->smart_think($smart, $obj_img);
         // stupid think
-        $stupid_cnt = mb_strlen($stupid);
-        $stupid_img = $this->stupid_think($stupid, $stupid_cnt);
+        $this->stupid_think($stupid, $obj_img);
 
-        // image mixing
-        $base_img = $this->mix_img($base_img, $obj_img, $smart_img, $stupid_img, $stupid_cnt);
-        $base_img->save('img/test.png');
         return redirect('/');
         //return view('index');
     }
 
-    private function this_theme($theme, $base) {
-        //$img = \Image::canvas(700,50,'#fff000');
-
-        $base->text($theme, 190, 240, function($font) {
+    private function this_theme($theme, $obj) {
+        $img = \Image::make('img/theme.png');
+        $img->text($theme, 190, 220, function($font) {
             $font->file(public_path('fonts\ipagp.ttf'));
             $font->size(16);
             $font->align('center');
-            $font->color('#ff0000');
+            $font->color('#000000');
         });
-
-        return $base;
+        $obj->fit(80,80); // max 80x80 resize
+        $img->insert($obj, 'top-left', 140, 90); // theme obj
+        $img->save('img/test1.png');
     }
 
-    private function smart_think($smart) {
+    private function smart_think($smart, $obj) {
         // create back img
-        $back = \Image::canvas(500,500);
-        for ($i=1;$i<=count($smart); $i++) {
+        $back = \Image::make('img/smart.png');
+        $img = \Image::canvas(500,500);
+
+        for ($i=0;$i<count($smart); $i++) {
+        //for ($i=0;$i<8; $i++) {
             $cnt[] = $i;
         }
-        // rand postion
-        //shuffle($cnt);
 
         foreach ($smart as $key => $value) {
+        //for ($key=0;$key<8; $key++) {
             switch ($cnt[$key]) {
-                case 1:
-                    $wt = 40;
-                    $ht = 45;
-                    $size = 25;
-                    break;
-                case 2:
-                    $wt = 175;
-                    $ht = 75;
-                    $size = 25;
-                    break;
-                case 3:
-                    $wt = 310;
-                    $ht = 60;
-                    $size = 25;
-                    break;
-                case 4:
-                    $wt = 15;
-                    $ht = 105;
-                    $size = 25;
-                    break;
-                case 5:
-                    $wt = 150;
-                    $ht = 145;
-                    $size = 30;
-                    break;
-                case 6:
-                    $wt = 250;
-                    $ht = 110;
-                    $size = 20;
-                    break;
-                case 7:
-                    $wt = 55;
-                    $ht = 190;
+
+                case 0: // 7 length
+                    $wt = 165;
+                    $ht = 120;
                     $size = 40;
                     break;
-                case 8:
-                    $wt = 265;
-                    $ht = 195;
+                case 1: // 9 length
+                    $wt = 340;
+                    $ht = 80;
                     $size = 35;
                     break;
-                case 9:
-                    $wt = 165;
-                    $ht = 240;
+                case 2: // 9 length
+                    $wt = 270;
+                    $ht = 200;
+                    $size = 45;
+                    break;
+                case 3: // 8 length
+                    $wt = 350;
+                    $ht = 290;
                     $size = 40;
                     break;
-                case 10:
-                    $wt = 290;
-                    $ht = 275;
-                    $size = 25;
-                    break;
-                case 11:
-                    $wt = 190;
-                    $ht = 310;
-                    $size = 22  ;
-                    break;
-                case 12:
-                    $wt = 220;
+                case 4: // 6 length
+                    $wt = 340;
                     $ht = 360;
-                    $size = 30;
+                    $size = 37;
                     break;
-                case 13:
-                    $wt = 180;
-                    $ht = 425;
-                    $size = 25;
-                    break;
-                case 14:
+                case 5: // 10 length
+                    $wt = 280;
+                    $ht = 150;
+                    $size = 28;
+                        break;
+                case 6: // 10 length
                     $wt = 320;
-                    $ht = 460;
-                    $size = 25;
+                    $ht = 250;
+                    $size = 26;
+                    break;
+                case 7: // 8 length
+                    $wt = 320;
+                    $ht = 420;
+                    $size = 35;
                     break;
                 default:
-                    $wt = 9999;
-                    $ht = 9999;
+                    $wt = 0;
+                    $ht = 0;
                     $size = 0;
                     break;
             }
 
             // back img on smart think
-            $back->text($value, $wt, $ht, function($font) use ($size){
+            $img->text($value, $wt, $ht, function($font) use ($size){
                 $font->file(public_path('fonts\ipagp.ttf'));
                 $font->size($size);
+                $font->align('center');
                 $font->color('#000000');
             });
         }
 
         // resize back img
-        $back->resize(225, 225, function ($constraint) {
+        $img->resize(230, 230, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });
-        return $back;
+        $obj->fit(50,50);
+        $back->insert($obj, 'top-left', 50, 175); // smart pepole obj
+        $back->insert($img, 'top-left', 130, 0); // smart pepole obj
+        $back->save('img/test2.png');
     }
 
-    private function stupid_think($stupid, $cnt) {
+    private function stupid_think($stupid, $obj) {
+        $back = \Image::make('img/stupid.png');
         $img = \Image::canvas(200,600);
         $wh_orgin = $wh = 10;
         $ht = 110;
         $stupid_arr = preg_split("//u", $stupid, -1, PREG_SPLIT_NO_EMPTY);
+        $cnt = mb_strlen($stupid);
 
         if($cnt<3){
             $img->resize(200,250);
@@ -178,29 +152,29 @@ class BananaController extends Controller
             $ht += 115;
         }
         $img->trim();
-        $img->resize(70, 210, function ($constraint) {
+        $img->resize(70, 225, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });
 
-        return $img;
-    }
 
-    private function mix_img($base, $obj, $smart, $stupid, $stupid_cnt) {
-        $stupid_ht = 0;
-        if($stupid_cnt <= 3){
-            $stupid_ht = 50;
+        switch ($cnt) {
+            case 1:
+            case 2:
+                $ht = 70;
+                break;
+            case 3:
+                $ht = 50;
+                break;
+            default:
+                $ht = 0;
+                break;
         }
 
-        //theme image on base image
-        $obj->fit(80,80); // max 80x80 resize
-        $base->insert($obj, 'top-left', 140, 110); // theme obj
-        $obj->fit(50,50); // max 50x50 resize
-        $base->insert($obj, 'top-left', 50, 430); // smart pepole obj
-        $base->insert($obj, 'bottom-left', 50, 0); // stupid pepole obj
-        $base->insert($smart, 'top-left', 145, 255); // smart think img
-        $base->insert($stupid, 'bottom-right', 10, $stupid_ht); // stupid think img
-        return $base;
+        $obj->fit(50,50);
+        $back->insert($obj, 'bottom-left', 50, 5); // stupid pepole obj
+        $back->insert($img, 'bottom-right', 10, $ht); // stupid think img
+        $back->save('img/test3.png');
     }
 
 }

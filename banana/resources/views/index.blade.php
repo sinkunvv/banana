@@ -15,9 +15,9 @@
             <h3>メーカー</h3>
         </header>
         <div class="row">
-            <img src={{asset('/img/base.png')}} width="30%" height="30%" alt="" />
-            <img src={{asset('/img/test.png')}} width="30%" height="30%" alt="" />
+            <img src={{asset('/img/test1.png')}} width="30%" height="30%" alt="" />
             <img src={{asset('/img/test2.png')}} width="30%" height="30%" alt="" />
+            <img src={{asset('/img/test3.png')}} width="30%" height="30%" alt="" />
         </div>
 
         {!! Form::open(['accept-charset' => 'UTF-8', 'url' => 'create', 'files' => 'true']) !!}
@@ -31,7 +31,7 @@
             <div class="row 50%">
                 <div class="12u">
                     {!! Form::label('頭のいい人の場合')!!}
-                    @for ($i=1;$i<=14;$i++)
+                    @for ($i=1;$i<=8;$i++)
                         {!! Form::input('text', 'smart_think[]', null, ['class' => 'form-control', 'placeholder' => '頭のいい考えをかこう...']) !!}
                     @endfor
                 </div>
