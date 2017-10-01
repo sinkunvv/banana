@@ -16,9 +16,7 @@ class BananaController extends Controller
         //     'stupid_think' => 'required|between:1,5|kana',
         // ]);
         //
-        unlink('img/test1.png');
-        unlink('img/test2.png');
-        unlink('img/test3.png');
+
         $theme = $request->input('this_theme');
         $stupid = $request->input('stupid_think');
         $smart = $request->input('smart_think');
