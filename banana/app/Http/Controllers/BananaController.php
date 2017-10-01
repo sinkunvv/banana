@@ -35,7 +35,7 @@ class BananaController extends Controller
     private function this_theme($theme, $obj) {
         $img = \Image::make('img/theme.png');
         $img->text($theme, 190, 220, function($font) {
-            $font->file(public_path('fonts\ipagp.ttf'));
+            $font->file(public_path('fonts/ipagp.ttf'));
             $font->size(16);
             $font->align('center');
             $font->color('#000000');
@@ -108,7 +108,7 @@ class BananaController extends Controller
 
             // back img on smart think
             $img->text($value, $wt, $ht, function($font) use ($size){
-                $font->file(public_path('fonts\ipagp.ttf'));
+                $font->file(public_path('fonts/ipagp.ttf'));
                 $font->size($size);
                 $font->align('center');
                 $font->color('#000000');
@@ -140,7 +140,7 @@ class BananaController extends Controller
 
         foreach ($stupid_arr as $str) {
             $img->text($str, $wh, $ht, function($font) {
-                $font->file(public_path('fonts\iori_font.ttf'));
+                $font->file(public_path('fonts/iori_font.ttf'));
                 $font->size(125);
                 $font->color('#000000');
             });
