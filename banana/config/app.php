@@ -179,6 +179,7 @@ return [
 
         // add provider
         'Intervention\Image\ImageServiceProvider',
+         Olssonm\VeryBasicAuth\VeryBasicAuthServiceProvider::class,
     ],
 
     /*

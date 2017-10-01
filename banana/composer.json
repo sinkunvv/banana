@@ -11,6 +11,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
+        "olssonm/l5-very-basic-auth": "^4.0",
         "panique/laravel-sass": "^1.0"
     },
     "require-dev": {
