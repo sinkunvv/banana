@@ -180,6 +180,7 @@ return [
         // add provider
         'Intervention\Image\ImageServiceProvider',
          Olssonm\VeryBasicAuth\VeryBasicAuthServiceProvider::class,
+         Thujohn\Twitter\TwitterServiceProvider::class,
     ],
 
     /*
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => 'Intervention\Image\Facades\Image',
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];

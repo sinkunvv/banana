@@ -37,7 +37,8 @@ class BananaController extends Controller
         $smart_img->save('img/test2.png');
         $stupid_img->save('img/test3.png');
 
-        return redirect('/');
+        //dd($stupid_img->encode('png'));
+        return view('post', compact('theme_img', 'smart_img', 'stupid_img'));
     }
 
     private function this_theme($theme, $obj) {

@@ -16,14 +16,14 @@
         </header>
         <div class="row">
             <div class="6u 12u(narrower)">
-                <img src={{asset('/img/test1.png')}} alt="" />
-                <img src={{asset('/img/test2.png')}} alt="" />
-                <img src={{asset('/img/test3.png')}} alt="" />
+                <img src={{asset('/img/theme.png')}} alt="" />
+                <img src={{asset('/img/smart.png')}} alt="" />
+                <img src={{asset('/img/stupid.png')}} alt="" />
             </div>
 
             <div class="6u 12u(narrower)">
                 <section>
-                    {!! Form::open(['files' => 'true']) !!}
+                    {!! Form::open(['files' => 'true', 'url'=>'post']) !!}
                         <div class="row 50%">
                             <div class="12u">
                                 {!! Form::label('お題：(250x250pxまで)') !!}
