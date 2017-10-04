@@ -13,20 +13,20 @@ class BananaController extends Controller
     // create img
     public function create(Request $request) {
         // validate image only
-        // $request->validate([
-        //     'this_theme' => 'required|between:1,15',
-        //     'obj_img' => 'required|image|dimensions:max_width=256,max_height=256|max:3000',
-        //     'smart_think.*' => 'required|between:1,10',
-        //     'stupid_think' => 'required|between:1,5|kana',
-        // ]);
+        $request->validate([
+            'this_theme' => 'required|between:1,15',
+            'obj_img' => 'required|image|dimensions:max_width=256,max_height=256|max:3000',
+            //'smart_think.*' => 'required|between:1,10',
+            'stupid_think' => 'required|between:1,5|kana',
+        ]);
         //
 
         $theme = $request->input('this_theme');
         $stupid = $request->input('stupid_think');
         $smart = $request->input('smart_think');
         // upload object image
-        //$obj_img = \Image::make($request->file('obj_img'));
-        $obj_img = \Image::make('img/obj.png');
+        $obj_img = \Image::make($request->file('obj_img'));
+        //$obj_img = \Image::make('img/obj.png');
         // theme on base
         $theme_img = $this->this_theme($theme, $obj_img);
         // smart think
