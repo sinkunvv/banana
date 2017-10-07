@@ -15,7 +15,7 @@ class BananaController extends Controller
         // validate image only
         $request->validate([
             'this_theme' => 'required|between:1,15',
-            //'obj_img' => 'required|image|dimensions:max_width=500,max_height=500|max:3000',
+            'obj_img' => 'required|image',
             'smart_think.0' => 'required',
             'smart_think.1' => 'required',
             'smart_think.2' => 'required',
