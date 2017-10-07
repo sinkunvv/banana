@@ -15,11 +15,16 @@ class BananaController extends Controller
         // validate image only
         $request->validate([
             'this_theme' => 'required|between:1,15',
-            'obj_img' => 'required|image|dimensions:max_width=256,max_height=256|max:3000',
-            //'smart_think.*' => 'required|between:1,10',
+            //'obj_img' => 'required|image|dimensions:max_width=500,max_height=500|max:3000',
+            'smart_think.0' => 'required',
+            'smart_think.1' => 'required',
+            'smart_think.2' => 'required',
+            'smart_think.3' => 'required',
+            'smart_think.4' => 'required',
+            'smart_think.*' => 'between:0,10',
             'stupid_think' => 'required|between:1,5|kana',
         ]);
-        //
+
 
         $theme = $request->input('this_theme');
         $stupid = $request->input('stupid_think');
@@ -33,12 +38,12 @@ class BananaController extends Controller
         $smart_img = $this->smart_think($smart, $obj_img);
         // stupid think
         $stupid_img = $this->stupid_think($stupid, $obj_img);
-        $theme_img->save('img/test1.png');
-        $smart_img->save('img/test2.png');
-        $stupid_img->save('img/test3.png');
 
+        $status = $theme.'　https://banana.idev.jp #頭の良い人と悪い人の物の見方の違い #ばななメーカー';
         //dd($stupid_img->encode('png'));
-        return view('post', compact('theme_img', 'smart_img', 'stupid_img'));
+        //        $status = $request->post('status');
+
+        return view('post', compact('theme_img', 'smart_img', 'stupid_img', 'status'));
     }
 
     private function this_theme($theme, $obj) {
@@ -49,7 +54,7 @@ class BananaController extends Controller
             $font->align('center');
             $font->color('#000000');
         });
-        $obj->fit(80,80); // max 80x80 resize
+        $obj->resize(80, 80);
         $img->insert($obj, 'top-left', 140, 90); // theme obj
         return $img;
     }
@@ -129,7 +134,7 @@ class BananaController extends Controller
             $constraint->aspectRatio();
             $constraint->upsize();
         });
-        $obj->fit(50,50);
+        $obj->resize(50,50);
         $back->insert($obj, 'top-left', 50, 175); // smart pepole obj
         $back->insert($img, 'top-left', 130, 0); // smart pepole obj
         return $back;
@@ -180,7 +185,7 @@ class BananaController extends Controller
                 break;
         }
 
-        $obj->fit(50,50);
+        $obj->resize(50,50);
         $back->insert($obj, 'bottom-left', 50, 5); // stupid pepole obj
         $back->insert($img, 'bottom-right', 10, $ht); // stupid think img
         return $back;

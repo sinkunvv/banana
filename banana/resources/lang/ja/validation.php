@@ -119,9 +119,17 @@ return [
 
     'attributes' => [
          'this_theme' => 'お題目',
-         'smart_think.*' => '頭の良い人の考え',
+         'smart_think.0' => '頭の良い人の考え1行目',
+         'smart_think.1' => '頭の良い人の考え2行目',
+         'smart_think.2' => '頭の良い人の考え3行目',
+         'smart_think.3' => '頭の良い人の考え4行目',
+         'smart_think.4' => '頭の良い人の考え5行目',
+         'smart_think.5' => '頭の良い人の考え6行目',
+         'smart_think.6' => '頭の良い人の考え7行目',
+         'smart_think.7' => '頭の良い人の考え8行目',
          'stupid_think' => '頭の悪い人の考え',
          'obj_img' => 'お題の画像',
+         'agree' => '利用規約確認チェック'
     ],
 
 ];

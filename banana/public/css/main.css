@@ -1660,6 +1660,12 @@
 		position: relative;
 		text-align: center;
 	}
+    header.headers {
+        margin-bottom: 2em;
+        padding-top: 7em;
+        position: relative;
+        text-align: center;
+    }
 
 		header.special:before, header.special:after {
 			border-bottom: solid 1.5px;
@@ -2465,7 +2471,7 @@
 		background-position: top left, top right, bottom left, bottom right;
 		background-repeat: no-repeat;
 		background-size: 25em;
-		padding: 7em 0;
+		padding: 5em 0;
 	}
 
 		#main > :last-child {
@@ -2551,7 +2557,7 @@
 
 			header.special {
 				padding-top: 5.5em;
-				margin-bottom: 4em;
+				margin-bottom: 1em;
 			}
 
 	}
@@ -2771,9 +2777,9 @@
 
 		/* Header */
 
-			#header {
+			/*#header {
 				display: none;
-			}
+			}*/
 
 		/* Banner */
 
@@ -3194,3 +3200,17 @@
 			}
 
 	}
+    .banana {
+        background-image: url("../img/banana1.png");
+        background-repeat: no-repeat;
+
+    }
+    .sample_img {
+        text-align: center;
+    }
+    .sample_img img {
+        width: 30%;
+    }
+    .hint {
+        font-size: 80%;
+    }
