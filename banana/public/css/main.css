@@ -2780,7 +2780,9 @@
 			/*#header {
 				display: none;
 			}*/
-
+            .adsence {
+                display: none;
+            }
 		/* Banner */
 
 			#banner {
