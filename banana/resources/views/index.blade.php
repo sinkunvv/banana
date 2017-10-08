@@ -53,6 +53,12 @@
                         </div>
                     </div>
                 {!! Form::close() !!}
+                <div class="adsence">
+                    <h1>スポンサーリンク</h1>
+                    <!-- admax -->
+                    <script src="//adm.shinobi.jp/s/32ea2b2625e8b6610899ba1c46156e9d"></script>
+                    <!-- admax -->
+                </div>
             </section>
         </div>
      </section>

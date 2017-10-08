@@ -25,6 +25,12 @@
                         <li>{!! Form::submit('ついーと？', ['class' => 'button small special']) !!}</li>
                         <li><a href="/" class="button small">戻る</a></li>
                     </ul>
+                    <div class="adsence">
+                        <h1>スポンサーリンク</h1>
+                        <!-- admax -->
+                        <script src="//adm.shinobi.jp/s/1f2aeb158e6ec90f70a0e5b5601dd7ad"></script>
+                        <!-- admax -->
+                    </div>
                     <div class='hint'>Hint：お題の画像は正方形だときれいに見えます</div>
                 </div>
                 {!! Form::close() !!}

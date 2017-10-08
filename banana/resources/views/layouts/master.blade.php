@@ -37,10 +37,9 @@
                                 <div class="content">
                                     @yield('content')
                                 </div>
+
                         </section>
-                        <!-- admax -->
-                        <script src="//adm.shinobi.jp/s/32ea2b2625e8b6610899ba1c46156e9d"></script>
-                        <!-- admax -->
+
                 </article>
 
             <!-- Footer -->
