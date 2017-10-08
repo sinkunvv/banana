@@ -38,6 +38,9 @@
                                     @yield('content')
                                 </div>
                         </section>
+                        <!-- admax -->
+                        <script src="//adm.shinobi.jp/s/32ea2b2625e8b6610899ba1c46156e9d"></script>
+                        <!-- admax -->
                 </article>
 
             <!-- Footer -->
@@ -49,9 +52,11 @@
                         <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
                         <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
                     </ul> --}}
+
                     <ul class="copyright">
-                        <li>&copy; idevs.jp</li>
+                        <li>&copy; S.DEVELOP</li>
                         <li><a href='/agreement' target='_blank'>利用規約</a></li>
+                        <li>Developer : <a href="https://twitter.com/sinkunvv">@@sinkunvv</a></li>
                         <li>iori-fonts : <a href="http://susu.cc/">煤式自動連結器</a></li>
                         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                     </ul>
