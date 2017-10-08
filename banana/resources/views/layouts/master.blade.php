@@ -27,7 +27,7 @@
                 <article id="main">
 
                     <header class="container">
-                        <a class="twitter-timeline" width="100%" height="50%" href="https://twitter.com/hashtag/%E3%81%B0%E3%81%AA%E3%81%AA%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC" data-widget-id="916921309224824832">#ばななメーカー のツイート</a>
+                        <a class="twitter-timeline" width="100%" height="100px" href="https://twitter.com/hashtag/%E3%81%B0%E3%81%AA%E3%81%AA%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC" data-widget-id="916921309224824832">#ばななメーカー のツイート</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                     </header>
 
