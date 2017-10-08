@@ -39,7 +39,7 @@ class BananaController extends Controller
         // stupid think
         $stupid_img = $this->stupid_think($stupid, $obj_img);
 
-        $status = $theme.'　https://banana.idev.jp #頭の良い人と悪い人の物の見方の違い #ばななメーカー';
+        $status = $theme.'　https://banana.idevs.jp #頭の良い人と悪い人の物の見方の違い #ばななメーカー';
         //dd($stupid_img->encode('png'));
         //        $status = $request->post('status');
 
