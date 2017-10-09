@@ -14,6 +14,14 @@
         <!--[if lte IE 8]><link rel="stylesheet" href={{asset('/css/ie8.css')}} /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href={{asset('/css/ie9.css')}} /><![endif]-->
         {{ Html::favicon(asset('/img/icon.png'))}}
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107705564-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-107705564-1');
+        </script>
     </head>
     <body class="no-sidebar">
         <div id="page-wrapper">
